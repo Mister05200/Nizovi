@@ -155,61 +155,59 @@
         </div>
     </div>
 
-    <!-- Problem 3 -->
-    <div class="problem">
-        <h2>Zadatak 3.</h2>
-        <p>Naći aritmetički niz \( (a_1, a_2, a_3, \ldots) \) ako je poznato:</p>
-        <div class="formula">
-            \[ a_1 + a_3 + a_5 = -12 \]
-            \[ a_1 \cdot a_3 \cdot a_5 = 80 \]
+<div class="problem">
+    <h2>Zadatak 3.</h2>
+    <p>Naći aritmetički niz \( (a_1, a_2, a_3, \ldots) \) ako je poznato:</p>
+    <div class="formula">
+        \[ a_1 + a_3 + a_5 = -12 \]
+        \[ a_1 \cdot a_3 \cdot a_5 = 80 \]
+    </div>
+    <button id="problem3-button" onclick="toggleSteps('problem3')">Prikaži rešenje korak po korak</button>
+    <div id="problem3-solution" class="solution">
+        <div id="problem3-step1">
+            <h3>Korak 1: Izraziti članove preko \( a_1 \) i \( d \)</h3>
+            <div class="formula">
+                \[ a_3 = a_1 + 2d \]
+                \[ a_5 = a_1 + 4d \]
+                \[ a_1 + a_3 + a_5 = a_1 + (a_1 + 2d) + (a_1 + 4d) = 3a_1 + 6d = -12 \]
+                \[ a_1 + 2d = -4 \quad \text{(Jednačina 1)} \]
+            </div>
+            <button class="step-button" onclick="showStep('problem3', 2)">Sledeći korak</button>
         </div>
-        <button id="problem3-button" onclick="toggleSteps('problem3')">Prikaži rešenje korak po korak</button>
-        <div id="problem3-solution" class="solution">
-            <div id="problem3-step1">
-                <h3>Korak 1: Izraziti članove preko \( a_1 \) i \( d \)</h3>
-                <div class="formula">
-                    \[ a_3 = a_1 + 2d \]
-                    \[ a_5 = a_1 + 4d \]
-                    \[ a_1 + (a_1 + 2d) + (a_1 + 4d) = 3a_1 + 6d = -12 \]
-                    \[ a_1 + 2d = -4 \quad \text{(1)} \]
-                </div>
-                <button class="step-button" onclick="showStep('problem3', 2)">Sledeći korak</button>
+        <div id="problem3-step2" style="display:none">
+            <h3>Korak 2: Rešavanje sistema jednačina</h3>
+            <p>Iz Jednačine 1: \( a_1 = -4 - 2d \).</p>
+            <p>Proizvod članova:</p>
+            <div class="formula">
+                \[ a_1 \cdot a_3 \cdot a_5 = a_1 \cdot (a_1 + 2d) \cdot (a_1 + 4d) = 80 \]
+                \[ (-4 - 2d)(-4)(-4 + 2d) = 80 \]
+                \[ (-4)(-4 - 2d)(-4 + 2d) = 80 \]
+                \[ (-4)(16 - 4d^2) = 80 \]
+                \[ 16 - 4d^2 = -20 \]
+                \[ -4d^2 = -36 \]
+                \[ d^2 = 9 \implies d = \pm 3 \]
             </div>
-            <div id="problem3-step2" style="display:none">
-                <h3>Korak 2: Rešavanje sistema jednačina</h3>
-                <p>Iz (1): \( a_1 = -4 - 2d \)</p>
-                <p>Proizvod članova:</p>
-                <div class="formula">
-                    \[ a_1 \cdot (a_1 + 2d) \cdot (a_1 + 4d) = 80 \]
-                    \[ (-4 - 2d)(-4)(-4 + 2d) = 80 \]
-                    \[ (-4 - 2d)(-4 + 2d) = 20 \]
-                    \[ 16 - 4d^2 = 20 \]
-                </div>
-                <button class="step-button" onclick="showStep('problem3', 3)">Sledeći korak</button>
+            <button class="step-button" onclick="showStep('problem3', 3)">Sledeći korak</button>
+        </div>
+        <div id="problem3-step3" style="display:none">
+            <h3>Korak 3: Određivanje niza za svako \( d \)</h3>
+            <p><strong>Slučaj 1: \( d = 3 \)</strong></p>
+            <div class="formula">
+                \[ a_1 = -4 - 2 \times 3 = -10 \]
+                \[ \text{Niz: } a_n = -10 + 3(n-1) \]
             </div>
-            <div id="problem3-step3" style="display:none">
-                <h3>Korak 3: Određivanje \( d \) i \( a_1 \)</h3>
-                <div class="formula">
-                    \[ -4d^2 = 4 \]
-                    \[ d^2 = -1 \]
-                </div>
-                <p>Ovo nema realna rešenja, što znači da postoji greška u pretpostavkama.</p>
-                <p>Alternativni pristup: Neka je srednji član \( a \), razlika \( d \):</p>
-                <div class="formula">
-                    \[ (a - 2d) + a + (a + 2d) = 3a = -12 \implies a = -4 \]
-                    \[ (a - 2d) \cdot a \cdot (a + 2d) = 80 \]
-                    \[ (-4 - 2d)(-4)(-4 + 2d) = 80 \]
-                    \[ (-4)(16 - 4d^2) = 80 \]
-                    \[ 16 - 4d^2 = -20 \]
-                    \[ 4d^2 = 36 \implies d = \pm 3 \]
-                </div>
-                <p class="final-answer">Dva rešenja:
-                    <br>1) \( a_1 = -10, d = 3 \): -10, -7, -4, -1, 2, ...
-                    <br>2) \( a_1 = 2, d = -3 \): 2, -1, -4, -7, -10, ...</p>
-                <button class="hide-button" onclick="toggleSteps('problem3')">Sakrij rešenje</button>
+            <p><strong>Slučaj 2: \( d = -3 \)</strong></p>
+            <div class="formula">
+                \[ a_1 = -4 - 2 \times (-3) = 2 \]
+                \[ \text{Niz: } a_n = 2 - 3(n-1) \]
             </div>
+            <p class="final-answer">Dobijena su dva rešenja:
+                <br>1) \(\boxed{a_n = -10 + 3(n-1)}\)
+                <br>2) \(\boxed{a_n = 2 - 3(n-1)}\)</p>
+            <button class="hide-button" onclick="toggleSteps('problem3')">Sakrij rešenje</button>
         </div>
     </div>
+</div>
 
     <!-- Problem 4 -->
     <div class="problem">
