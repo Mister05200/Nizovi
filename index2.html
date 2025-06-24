@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematički nizovi - Zadaci</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        .problem {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .solution {
+            display: none;
+            padding: 15px;
+            margin-top: 10px;
+            background-color: #f0f8ff;
+            border-left: 4px solid #3498db;
+            border-radius: 0 5px 5px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .formula {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .final-answer {
+            font-weight: bold;
+            color: #27ae60;
+            margin-top: 10px;
+        }
+        .step-button {
+            background-color: #2ecc71;
+            margin-left: 10px;
+        }
+        .step-button:hover {
+            background-color: #27ae60;
+        }
+        .hide-button {
+            background-color: #e74c3c;
+        }
+        .hide-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Matematički nizovi - Zadaci</h1>
+
+    <!-- Problem 1 -->
+    <div class="problem">
+        <h2>Zadatak 1: Relacija u aritmetičkom nizu</h2>
+        <p>Ako su \( x, y, z \) tri uzastopna člana aritmetičkog niza, dokazati da važi:</p>
+        <div class="formula">
+            \[ x^2 + 8yz = (2z + x)^2 \]
+        </div>
+        <button id="problem1-button" onclick="toggleSteps('problem1')">Prikaži rešenje korak po korak</button>
+        <div id="problem1-solution" class="solution">
+            <div id="problem1-step1">
+                <h3>Korak 1: Karakteristika aritmetičkog niza</h3>
+                <p>U aritmetičkom nizu, razlika između uzastopnih članova je konstantna:</p>
+                <div class="formula">
+                    \[ y = x + d \]
+                    \[ z = y + d = x + 2d \]
+                </div>
+                <button class="step-button" onclick="showStep('problem1', 2)">Sledeći korak</button>
+            </div>
+            <div id="problem1-step2" style="display:none">
+                <h3>Korak 2: Zamenjivanje u datu relaciju</h3>
+                <div class="formula">
+                    \[ x^2 + 8yz = x^2 + 8(x + d)(x + 2d) \]
+                    \[ (2z + x)^2 = (2(x + 2d) + x)^2 = (3x + 4d)^2 \]
+                </div>
+                <button class="step-button" onclick="showStep('problem1', 3)">Sledeći korak</button>
+            </div>
+            <div id="problem1-step3" style="display:none">
+                <h3>Korak 3: Dokaz identičnosti</h3>
+                <p>Razvijamo obe strane:</p>
+                <div class="formula">
+                    \[ \text{Leva strana: } x^2 + 8(x^2 + 3dx + 2d^2) = 9x^2 + 24dx + 16d^2 \]
+                    \[ \text{Desna strana: } (3x + 4d)^2 = 9x^2 + 24dx + 16d^2 \]
+                </div>
+                <p class="final-answer">Obe strane su identične, što dokazuje relaciju.</p>
+                <button class="hide-button" onclick="toggleSteps('problem1')">Sakrij rešenje</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem 2 -->
+    <div class="problem">
+        <h2>Zadatak 2: Količnik geometrijskog niza (bez deljenja)</h2>
+        <p>Drugi član geometrijskog niza je 6, a osmi član je 384. Naći količnik niza bez korišćenja deljenja.</p>
+        <button id="problem2-button" onclick="toggleSteps('problem2')">Prikaži rešenje korak po korak</button>
+        <div id="problem2-solution" class="solution">
+            <div id="problem2-step1">
+                <h3>Korak 1: Opšti oblik geometrijskog niza</h3>
+                <div class="formula">
+                    \[ b_n = b_1 \cdot q^{n-1} \]
+                    \[ b_2 = b_1 \cdot q = 6 \quad \Rightarrow \quad b_1 = \frac{6}{q} \]
+                    \[ b_8 = b_1 \cdot q^7 = 384 \quad \Rightarrow \quad b_1 = \frac{384}{q^7} \]
+                </div>
+                <button class="step-button" onclick="showStep('problem2', 2)">Sledeći korak</button>
+            </div>
+            <div id="problem2-step2" style="display:none">
+                <h3>Korak 2: Izjednačavanje izraza za \( b_1 \)</h3>
+                <div class="formula">
+                    \[ \frac{6}{q} = \frac{384}{q^7} \]
+                    \[ 6q^7 = 384q \]
+                    \[ 6q^6 = 384 \]
+                    \[ q^6 = 64 \]
+                </div>
+                <button class="step-button" onclick="showStep('problem2', 3)">Sledeći korak</button>
+            </div>
+            <div id="problem2-step3" style="display:none">
+                <h3>Korak 3: Rešavanje za \( q \)</h3>
+                <div class="formula">
+                    \[ q = \sqrt[6]{64} \]
+                    \[ q = \pm 2 \]
+                </div>
+                <p class="final-answer">Količnik niza može biti \( q = 2 \) ili \( q = -2 \).</p>
+                <button class="hide-button" onclick="toggleSteps('problem2')">Sakrij rešenje</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem 3 -->
+    <div class="problem">
+        <h2>Zadatak 3: Aritmetički niz sa datim uslovima</h2>
+        <p>Naći aritmetički niz \( (a_1, a_2, a_3, \ldots) \) ako je poznato:</p>
+        <div class="formula">
+            \[ a_1 + a_3 + a_5 = -12 \]
+            \[ a_1 \cdot a_3 \cdot a_5 = 80 \]
+        </div>
+        <button id="problem3-button" onclick="toggleSteps('problem3')">Prikaži rešenje korak po korak</button>
+        <div id="problem3-solution" class="solution">
+            <div id="problem3-step1">
+                <h3>Korak 1: Izraziti članove preko \( a_1 \) i \( d \)</h3>
+                <div class="formula">
+                    \[ a_3 = a_1 + 2d \]
+                    \[ a_5 = a_1 + 4d \]
+                    \[ a_1 + (a_1 + 2d) + (a_1 + 4d) = 3a_1 + 6d = -12 \]
+                    \[ a_1 + 2d = -4 \quad \text{(1)} \]
+                </div>
+                <button class="step-button" onclick="showStep('problem3', 2)">Sledeći korak</button>
+            </div>
+            <div id="problem3-step2" style="display:none">
+                <h3>Korak 2: Rešavanje sistema jednačina</h3>
+                <p>Iz (1): \( a_1 = -4 - 2d \)</p>
+                <p>Proizvod članova:</p>
+                <div class="formula">
+                    \[ a_1 \cdot (a_1 + 2d) \cdot (a_1 + 4d) = 80 \]
+                    \[ (-4 - 2d)(-4)(-4 + 2d) = 80 \]
+                    \[ (-4 - 2d)(-4 + 2d) = 20 \]
+                    \[ 16 - 4d^2 = 20 \]
+                </div>
+                <button class="step-button" onclick="showStep('problem3', 3)">Sledeći korak</button>
+            </div>
+            <div id="problem3-step3" style="display:none">
+                <h3>Korak 3: Određivanje \( d \) i \( a_1 \)</h3>
+                <div class="formula">
+                    \[ -4d^2 = 4 \]
+                    \[ d^2 = -1 \]
+                </div>
+                <p>Ovo nema realna rešenja, što znači da postoji greška u pretpostavkama.</p>
+                <p>Alternativni pristup: Neka je srednji član \( a \), razlika \( d \):</p>
+                <div class="formula">
+                    \[ (a - 2d) + a + (a + 2d) = 3a = -12 \implies a = -4 \]
+                    \[ (a - 2d) \cdot a \cdot (a + 2d) = 80 \]
+                    \[ (-4 - 2d)(-4)(-4 + 2d) = 80 \]
+                    \[ (-4)(16 - 4d^2) = 80 \]
+                    \[ 16 - 4d^2 = -20 \]
+                    \[ 4d^2 = 36 \implies d = \pm 3 \]
+                </div>
+                <p class="final-answer">Dva rešenja:
+                    <br>1) \( a_1 = -10, d = 3 \): -10, -7, -4, -1, 2, ...
+                    <br>2) \( a_1 = 2, d = -3 \): 2, -1, -4, -7, -10, ...</p>
+                <button class="hide-button" onclick="toggleSteps('problem3')">Sakrij rešenje</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem 4 -->
+    <div class="problem">
+        <h2>Zadatak 4: Geometrijski niz sa datim uslovima</h2>
+        <p>Zbir prva tri člana geometrijskog niza je 14, a zbir prvog i trećeg člana je dva puta veći od zbira drugog i četvrtog člana. Naći treći član niza.</p>
+        <button id="problem4-button" onclick="toggleSteps('problem4')">Prikaži rešenje korak po korak</button>
+        <div id="problem4-solution" class="solution">
+            <div id="problem4-step1">
+                <h3>Korak 1: Postavljanje jednačina</h3>
+                <div class="formula">
+                    \[ b_1 + b_1 q + b_1 q^2 = 14 \]
+                    \[ b_1 (1 + q + q^2) = 14 \quad \text{(1)} \]
+                    \[ b_1 + b_1 q^2 = 2(b_1 q + b_1 q^3) \]
+                    \[ b_1 (1 + q^2) = 2 b_1 q (1 + q^2) \quad \text{(2)} \]
+                </div>
+                <button class="step-button" onclick="showStep('problem4', 2)">Sledeći korak</button>
+            </div>
+            <div id="problem4-step2" style="display:none">
+                <h3>Korak 2: Rešavanje</h3>
+                <p>Ako \( 1 + q^2 \neq 0 \), možemo podeliti (2) sa \( 1 + q^2 \):</p>
+                <div class="formula">
+                    \[ b_1 = 2 b_1 q \implies 1 = 2q \implies q = \frac{1}{2} \]
+                </div>
+                <button class="step-button" onclick="showStep('problem4', 3)">Sledeći korak</button>
+            </div>
+            <div id="problem4-step3" style="display:none">
+                <h3>Korak 3: Određivanje članova</h3>
+                <p>Zamenimo \( q = \frac{1}{2} \) u (1):</p>
+                <div class="formula">
+                    \[ b_1 \left(1 + \frac{1}{2} + \frac{1}{4}\right) = 14 \]
+                    \[ b_1 \cdot \frac{7}{4} = 14 \implies b_1 = 8 \]
+                    \[ b_3 = b_1 q^2 = 8 \cdot \left(\frac{1}{2}\right)^2 = 2 \]
+                </div>
+                <p class="final-answer">Treći član niza je \( b_3 = 2 \).</p>
+                <button class="hide-button" onclick="toggleSteps('problem4')">Sakrij rešenje</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSteps(problemId) {
+            const solution = document.getElementById(problemId + '-solution');
+            const button = document.getElementById(problemId + '-button');
+            
+            if (solution.style.display === 'block') {
+                solution.style.display = 'none';
+                button.textContent = 'Prikaži rešenje korak po korak';
+                // Resetujemo korake kada se rešenje sakrije
+                const steps = document.querySelectorAll('#' + problemId + '-solution > div');
+                steps.forEach((step, index) => {
+                    step.style.display = index === 0 ? 'block' : 'none';
+                });
+            } else {
+                solution.style.display = 'block';
+                button.textContent = 'Sakrij rešenje';
+            }
+        }
+
+        function showStep(problemId, stepNumber) {
+            // Sakrij sve korake za ovaj problem
+            const steps = document.querySelectorAll('#' + problemId + '-solution > div');
+            steps.forEach(step => {
+                step.style.display = 'none';
+            });
+            
+            // Prikaži traženi korak
+            const stepToShow = document.getElementById(problemId + '-step' + stepNumber);
+            if (stepToShow) {
+                stepToShow.style.display = 'block';
+                stepToShow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+    </script>
+</body>
+</html>

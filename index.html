@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nizovi - Matematička prezentacija</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+			font-size:15px;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+			margin:auto;
+            transition: background-color 0.3s;
+			display:block;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .definition {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .formula {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .example {
+            background-color: #e8f8e8;
+            padding: 15px;
+            border-left: 4px solid #2ecc71;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .note {
+            background-color: #fff9e6;
+            padding: 10px;
+            border-left: 4px solid #f39c12;
+            margin: 15px 0;
+        }
+        .property {
+            background-color: #f5eef8;
+            padding: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #9b59b6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nizovi</h1>
+    
+    <h2>9.1 Osnovni pojmovi o nizovima</h2>
+    
+    <div class="definition">
+        <p><strong>Definicija:</strong> Niz realnih brojeva je svaka funkcija čiji je domen skup prirodnih brojeva, a kodomen skup realnih brojeva.</p>
+    </div>
+    
+    <p>Niz \((a_n)_{n\in\mathbb{N}}\) je <strong>ograničen</strong> ako postoje realni brojevi \(a\) i \(b\), \(a < b\), takvi da za sve članove niza važi \(a \leq a_n \leq b\).</p>
+    
+    <p>Niz \((a_n)\) je:</p>
+    <ol>
+        <li><strong>strogo rastući</strong> ako je za sve \(n\in\mathbb{N}\): \(a_n < a_{n+1}\);</li>
+        <li><strong>rastući</strong> ako je za sve \(n\in\mathbb{N}\): \(a_n \leq a_{n+1}\);</li>
+        <li><strong>opadajući</strong> ako je za sve \(n \in \mathbb{N}\): \(a_n \geq a_{n+1}\);</li>
+        <li><strong>strogo opadajući</strong> ako je za sve \(n \in \mathbb{N}\): \(a_n > a_{n+1}\).</li>
+    </ol>
+    
+    <div class="note">
+        <p>U svakom od slučajeva 1-4 kaže se da je \((a_n)\) <strong>monoton</strong>, a u slučajevima 1 i 4 da je <strong>strogo monoton</strong>.</p>
+    </div>
+    
+    <h2>9.2 Aritmetički i geometrijski niz</h2>
+    
+    <div class="definition">
+        <p><strong>Definicija:</strong> Niz realnih brojeva naziva se <strong>aritmetički niz</strong>, ako je svaki njegov član počevši od drugog, jednak aritmetičkoj sredini njemu susednih članova.</p>
+    </div>
+    
+    <div class="property">
+        <p>Da bi niz realnih brojeva bio aritmetički, neophodno je i dovoljno da postoji realan broj \(d\) (<strong>razlika aritmetičkog niza</strong>) tako da se svaki član počevši od drugog, dobija sabiranjem njemu prethodnog člana i broja \(d\):</p>
+        <div class="formula">
+            \[ a_2 = a_1 + d,\quad a_3 = a_2 + d,\quad \ldots,\quad a_n = a_{n-1} + d,\quad \ldots \]
+        </div>
+    </div>
+    
+    <div class="formula">
+        <p>U aritmetičkom nizu sa prvim članom \(a_1\) i razlikom \(d\), za sve prirodne brojeve \(n\) je:</p>
+        \[ a_n = a_1 + (n-1)d \]
+    </div>
+    
+    <div class="property">
+        <p>Ako brojevi \(a_1, a_2, \ldots, a_n\) predstavljaju prvih \(n\) članova aritmetičkog niza, onda za svaki broj \(k\), \(1 \leq k \leq n\), važi:</p>
+        \[ a_k + a_{n-k+1} = a_1 + a_n \]
+    </div>
+    
+    <div class="formula">
+        <p>Neka je \(S_n = a_1 + a_2 + \ldots + a_n\) zbir prvih \(n\) članova aritmetičkog niza \((a_1, a_2, a_3, \ldots, a_n, \ldots)\) sa razlikom \(d\). Tada je:</p>
+        \[ S_n = \frac{n}{2} (a_1 + a_n) = \frac{n}{2} \left(2a_1 + (n-1)d\right) \]
+    </div>
+    
+    <div class="definition">
+        <p><strong>Definicija:</strong> Niz realnih brojeva je <strong>geometrijski niz</strong> ako je apsolutna vrednost svakog njegovog člana, počev od drugog, jednaka geometrijskoj sredini njemu susednih članova.</p>
+    </div>
+    
+    <div class="property">
+        <p>Da bi niz realnih brojeva, čiji je prvi član različit od nule, bio geometrijski niz čiji su svi članovi različiti od nule, neophodno je i dovoljno da postoji realan broj \(q\), različit od nule (<strong>količnik geometrijskog niza</strong>), takav da se svaki član niza, počev od drugog, dobija množenjem njemu prethodnog člana sa \(q\):</p>
+        <div class="formula">
+            \[ b_1,\quad b_2 = b_1 q,\quad b_3 = b_2 q,\quad b_4 = b_3 q,\quad \ldots,\quad b_n = b_{n-1} q,\quad \ldots \]
+        </div>
+    </div>
+    
+    <div class="formula">
+        <p>U geometrijskom nizu, sa prvim članom \(b_1\) i količnikom \(q\) je za sve \(n \in \mathbb{N}\):</p>
+        \[ b_n = b_1 \cdot q^{n-1} \]
+    </div>
+    
+    <div class="formula">
+        <p>U geometrijskom nizu, čiji je prvi član \(b_1\) i količnik \(q\), zbir prvih \(n\) članova ovog niza je:</p>
+        \[ S_n = b_1 \frac{q^n - 1}{q - 1},\quad \text{ako je } q \neq 1 \]
+        \[ S_n = n \cdot b_1,\quad \text{ako je } q = 1 \]
+    </div>
+    
+    <div class="example">
+        <p><strong>Primer:</strong> Ako imamo geometrijski niz gde je \(b_1 = 3\) i \(q = 2\), onda je:</p>
+        <p>Peti član niza: \(b_5 = 3 \cdot 2^{4} = 48\)</p>
+        <p>Zbir prvih 5 članova: \(S_5 = 3 \cdot \frac{2^5 - 1}{2 - 1} = 3 \cdot 31 = 93\)</p>
+    </div>
+	
+	<button onclick="window.open('index2.html', '_blank')">Zadaci</button>
+</body>
+</html>
